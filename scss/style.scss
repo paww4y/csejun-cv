@@ -80,13 +80,11 @@ a:hover {
 header .navbar {
   background-color: $dgray;
   box-shadow: 0 4px 10px -2px $blue;
-
-  .container {
-    border: 0;
-  }
 }
 
 .navbar-brand {
+  padding: 0;
+  margin-left: 15px;
   font-size: 30px;
   font-weight: 700;
   color: $gray;
@@ -161,16 +159,30 @@ header .navbar {
 
 .section--header {
   padding-top: 100px;
+  padding-bottom: 0;
+  margin-bottom: 15px;
   height: auto;
   background-color: $dgray;
+}
 
-  .container {
-    border: 0;
+.section--exp {
+  .cv__text {
+    p {
+      padding-bottom: 15px;
+    }
   }
 }
 
-.container {
-  border-bottom: 1px solid $gray;
+.section--skill {
+  padding-top: 25px;
+  .cv__text-right {
+    padding: 0;
+    text-align: right;
+  }
+}
+
+.section__portfolio p {
+  text-align: center;
 }
 
 .col-md-9 {
@@ -191,6 +203,7 @@ header .navbar {
     color: $blue;
     font-size: 25px;
     padding-bottom: 15px;
+    font-weight: 700;
   }
 }
 
@@ -206,7 +219,7 @@ header .navbar {
 }
 
 .header__photo {
-  padding: 0 15px 15px 15px;
+  padding-bottom: 15px;
   background-color: $dgray;
 }
 
@@ -223,7 +236,7 @@ header .navbar {
   margin-top: 28px;
 }
 
-/* section cv */
+/* section cv cv__text*/
 .cv__title {
   i {
     padding-right: 15px;
@@ -231,25 +244,37 @@ header .navbar {
 
   h3 {
     font-weight: 700;
-    padding-right: 15px;
   }
 
   &:after {
     content: "";
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: $blue;
   }
 }
 
+.cv__title-full {
+  h3 {
+    font-weight: 700;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $blue;
+  }
+  padding-bottom: 60px;
+}
+
 .cv__text {
-  display: flex;
-  justify-content: flex-end;
   text-align: right;
-  padding-bottom: 25px;
 
   span {
+    display: inline-block;
     color: $blue;
     font-weight: 700;
   }
@@ -260,16 +285,7 @@ header .navbar {
   font-weight: 700;
 }
 
-.cv__text-right {
-  padding-left: 55px;
-}
-
 /* section skill */
-.section--skill .cv__text-right {
-  padding: 0;
-  text-align: right;
-}
-
 progress {
   border-radius: 2px;
   width: 100%;
@@ -318,6 +334,83 @@ progress::-moz-progress-bar {
 }
 
 /* portfolio */
+.portfolio {
+  margin: 20px 0 60px 0;
+  background-color: $blue;
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px -2px $blue;
+  }
+
+  &:hover .portfolio__img img {
+    opacity: 0.1;
+  }
+
+  .portfolio__img {
+    position: relative;
+    display: block;
+    background: linear-gradient(
+      90deg,
+      rgba(13, 106, 138, 1) 0%,
+      rgba(19, 19, 19, 1) 8%,
+      rgba(19, 19, 19, 1) 92%,
+      rgba(13, 106, 138, 1) 100%
+    );
+
+    img {
+      display: block;
+      transition: opacity 0.2s linear;
+    }
+
+    .portfolio__text {
+      width: 100%;
+      color: $white;
+      text-transform: uppercase;
+      font-size: 20px;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 0%;
+      z-index: 2;
+      transition: opacity 0.2s linear;
+
+      transform: translate3d(0, -50%, 0);
+      opacity: 0;
+    }
+
+    &:hover .portfolio__text {
+      opacity: 1;
+    }
+  }
+}
+
+.portfolio__list {
+  margin-bottom: 10px;
+  justify-content: center;
+  text-align: center;
+
+  a {
+    color: $dgray;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+/* about */
+.about__item {
+  h5 {
+    font-weight: 700;
+    padding-bottom: 15px;
+  }
+
+  p {
+    padding-bottom: 30px;
+  }
+}
 
 /* @media */
 @media (max-width: 991px) {
@@ -343,7 +436,18 @@ progress::-moz-progress-bar {
   }
 
   .header__photo {
-    padding: 5px;
+    padding: 0;
+  }
+
+  .header__social {
+    padding-bottom: 12px;
+  }
+
+  /* section--exp */
+  .cv__title {
+    h3 {
+      font-size: 24px;
+    }
   }
 }
 
@@ -360,10 +464,34 @@ progress::-moz-progress-bar {
 
   .header__photo {
     width: 22%;
+    padding-bottom: 7px;
   }
 
   .header__social {
     width: 39%;
+  }
+
+  /* section*/
+  .section {
+    padding: 25px 0;
+  }
+
+  .section--header {
+    padding: 90px 0 0 0;
+  }
+
+  /* text */
+  .cv__text {
+    text-align: center;
+  }
+
+  /* edu */
+  .cv__title:after {
+    margin-bottom: 20px;
+  }
+
+  .cv__text p {
+    padding-bottom: 15px;
   }
 }
 
@@ -382,17 +510,26 @@ progress::-moz-progress-bar {
 }
 
 @media (max-width: 518px) {
+  /* body */
+  body {
+    font-size: 11px;
+  }
+
   /* header */
   .header__photo {
     display: none;
   }
 
   .header__address {
+    margin-top: 12px;
     width: 50%;
   }
 
   .header__social {
+    margin-top: 12px;
     width: 50%;
+  }
+  .header__social {
   }
 }
 
