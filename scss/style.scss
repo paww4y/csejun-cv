@@ -174,14 +174,19 @@ header .navbar {
 }
 
 .section--skill {
-  padding-top: 25px;
+  padding: 25px 0 30px 0;
   .cv__text-right {
     padding: 0;
     text-align: right;
   }
 }
 
-.section__portfolio p {
+.section--portfolio,
+.section--about {
+  padding-bottom: 30px;
+}
+
+.section--portfolio p {
   text-align: center;
 }
 
@@ -410,6 +415,11 @@ progress::-moz-progress-bar {
   p {
     padding-bottom: 30px;
   }
+
+  a {
+    color: $blue;
+    font-weight: normal;
+  }
 }
 
 /* @media */
@@ -422,6 +432,15 @@ progress::-moz-progress-bar {
   /* nav */
   .nav-link {
     margin-left: 0;
+  }
+
+  /* section */
+  .section {
+    padding: 40px 0;
+  }
+
+  .section--header {
+    padding: 90px 0 0 0;
   }
 
   /* header */
@@ -449,12 +468,21 @@ progress::-moz-progress-bar {
       font-size: 24px;
     }
   }
+
+  /* portfolio */
+  .portfolio__list {
+    text-align: left;
+  }
 }
 
 @media (max-width: 767px) {
   /* body */
   body {
-    font-size: 11px;
+    font-size: 12px;
+  }
+
+  .col-md-9 {
+    padding-left: 0;
   }
 
   /* header */
@@ -473,7 +501,7 @@ progress::-moz-progress-bar {
 
   /* section*/
   .section {
-    padding: 25px 0;
+    padding: 20px 0;
   }
 
   .section--header {
@@ -485,6 +513,10 @@ progress::-moz-progress-bar {
     text-align: center;
   }
 
+  .cv__title-full {
+    padding-bottom: 40px;
+  }
+
   /* edu */
   .cv__title:after {
     margin-bottom: 20px;
@@ -492,6 +524,15 @@ progress::-moz-progress-bar {
 
   .cv__text p {
     padding-bottom: 15px;
+  }
+
+  /* portfolio */
+  .portfolio {
+    margin: 15px 0 35px 0;
+  }
+
+  .portfolio__list {
+    text-align: center;
   }
 }
 
@@ -507,12 +548,26 @@ progress::-moz-progress-bar {
       padding-bottom: 0px;
     }
   }
+
+  /* text */
+  .cv__text-right h6 {
+    text-align: center;
+  }
 }
 
 @media (max-width: 518px) {
   /* body */
   body {
     font-size: 11px;
+  }
+
+  /* section */
+  .section {
+    padding: 18px 0;
+  }
+
+  .section--header {
+    padding: 80px 0 0 0;
   }
 
   /* header */
