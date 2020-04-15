@@ -19,12 +19,17 @@ $dgray: #202020;
 $gray: #ccc;
 $white: #fff;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-width: 320px;
   font-family: "Nanum Gothic Coding", monospace;
   font-size: 15px;
   line-height: 1.6;
   color: $dgray;
+  position: relative;
 }
 
 i {
@@ -147,9 +152,23 @@ header .navbar {
 }
 
 .navbar-toggler:focus,
-.navbar-toggler:active,
 .navbar-toggler-icon:focus {
   outline-color: $blue;
+}
+
+.nav-item .active {
+  color: $blue;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $blue;
+    transform: scale(1);
+
+    transition: all 0.2s linear;
+  }
 }
 
 /* section */
@@ -160,12 +179,30 @@ header .navbar {
 .section--header {
   padding-top: 100px;
   padding-bottom: 0;
-  margin-bottom: 15px;
+  margin-bottom: 55px;
   height: auto;
   background-color: $dgray;
 }
 
+.section--edu {
+  margin-top: -90px;
+  padding-top: 90px;
+  margin-bottom: 50px;
+
+  .col-md-9 {
+    padding-left: 50px;
+  }
+}
+
 .section--exp {
+  margin-top: -90px;
+  padding-top: 90px;
+  margin-bottom: 15px;
+
+  .col-md-9 {
+    padding-left: 50px;
+  }
+
   .cv__text {
     p {
       padding-bottom: 15px;
@@ -174,7 +211,9 @@ header .navbar {
 }
 
 .section--skill {
-  padding: 25px 0 30px 0;
+  margin-top: -90px;
+  padding-top: 90px;
+  margin-bottom: 50px;
   .cv__text-right {
     padding: 0;
     text-align: right;
@@ -183,15 +222,14 @@ header .navbar {
 
 .section--portfolio,
 .section--about {
-  padding-bottom: 30px;
+  margin-top: -90px;
+  padding-top: 90px;
+  margin-bottom: 10px;
 }
 
-.section--portfolio p {
-  text-align: center;
-}
-
-.col-md-9 {
-  padding-left: 50px;
+.section--about {
+  margin-bottom: 0;
+  padding-bottom: 20px;
 }
 
 /* header */
@@ -340,7 +378,7 @@ progress::-moz-progress-bar {
 
 /* portfolio */
 .portfolio {
-  margin: 20px 0 60px 0;
+  margin-bottom: 60px;
   background-color: $blue;
   transition: all 0.2s linear;
 
@@ -393,8 +431,6 @@ progress::-moz-progress-bar {
 
 .portfolio__list {
   margin-bottom: 10px;
-  justify-content: center;
-  text-align: center;
 
   a {
     color: $dgray;
@@ -402,6 +438,41 @@ progress::-moz-progress-bar {
     &:hover {
       color: $blue;
     }
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+/* accordion */
+.accordion {
+  text-align: right;
+
+  .card-body {
+    text-align: left;
+  }
+}
+
+.btn-link {
+  text-decoration: none;
+  color: $dgray;
+
+  font-weight: 700;
+  transition: color 0.2s linear;
+
+  &:hover {
+    color: $blue;
+    text-decoration: none;
+
+    i {
+      color: $blue;
+    }
+  }
+
+  &:focus {
+    text-decoration: none;
+    color: $blue;
   }
 }
 
@@ -440,7 +511,39 @@ progress::-moz-progress-bar {
   }
 
   .section--header {
-    padding: 90px 0 0 0;
+    padding-top: 100px;
+    padding-bottom: 0;
+    margin-bottom: 55px;
+  }
+
+  .section--edu {
+    margin-top: -90px;
+    padding-top: 90px;
+    margin-bottom: 50px;
+  }
+
+  .section--exp {
+    margin-top: -90px;
+    padding-top: 90px;
+    margin-bottom: 15px;
+  }
+
+  .section--skill {
+    margin-top: -90px;
+    padding-top: 90px;
+    margin-bottom: 50px;
+  }
+
+  .section--portfolio,
+  .section--about {
+    margin-top: -90px;
+    padding-top: 90px;
+    margin-bottom: 30px;
+  }
+
+  .section--about {
+    margin-bottom: 0;
+    padding-bottom: 20px;
   }
 
   /* header */
@@ -468,17 +571,19 @@ progress::-moz-progress-bar {
       font-size: 24px;
     }
   }
-
-  /* portfolio */
-  .portfolio__list {
-    text-align: left;
-  }
 }
 
 @media (max-width: 767px) {
   /* body */
   body {
     font-size: 12px;
+  }
+
+  /* section*/
+  .section--header {
+    padding-top: 100px;
+    padding-bottom: 0;
+    margin-bottom: 55px;
   }
 
   .col-md-9 {
@@ -497,15 +602,6 @@ progress::-moz-progress-bar {
 
   .header__social {
     width: 39%;
-  }
-
-  /* section*/
-  .section {
-    padding: 20px 0;
-  }
-
-  .section--header {
-    padding: 90px 0 0 0;
   }
 
   /* text */
@@ -531,8 +627,9 @@ progress::-moz-progress-bar {
     margin: 15px 0 35px 0;
   }
 
-  .portfolio__list {
-    text-align: center;
+  /* accordion */
+  .accordion {
+    text-align: left;
   }
 }
 
@@ -562,12 +659,40 @@ progress::-moz-progress-bar {
   }
 
   /* section */
-  .section {
-    padding: 18px 0;
+  .section--header {
+    padding-top: 80px;
+    padding-bottom: 0;
+    margin-bottom: 30px;
   }
 
-  .section--header {
-    padding: 80px 0 0 0;
+  .section--edu {
+    margin-top: -80px;
+    padding-top: 80px;
+    margin-bottom: 0px;
+  }
+
+  .section--exp {
+    margin-top: -80px;
+    padding-top: 80px;
+    margin-bottom: 0px;
+  }
+
+  .section--skill {
+    margin-top: -80px;
+    padding-top: 80px;
+    margin-bottom: 15px;
+  }
+
+  .section--portfolio,
+  .section--about {
+    margin-top: -80px;
+    padding-top: 80px;
+    margin-bottom: 0px;
+  }
+
+  .section--about {
+    margin-bottom: 0;
+    padding-bottom: 0px;
   }
 
   /* header */
