@@ -576,7 +576,7 @@ progress::-moz-progress-bar {
 @media (max-width: 767px) {
   /* body */
   body {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   /* section*/
@@ -586,13 +586,19 @@ progress::-moz-progress-bar {
     margin-bottom: 55px;
   }
 
-  .col-md-9 {
-    padding-left: 0;
+  .section--edu,
+  .section--exp {
+    .col-md-9 {
+      padding-left: 0px;
+    }
   }
 
   /* header */
   .header__address {
     width: 39%;
+    margin-top: 15px;
+    font-size: 13px;
+    padding: 0 10px 12px 0;
   }
 
   .header__photo {
@@ -602,6 +608,9 @@ progress::-moz-progress-bar {
 
   .header__social {
     width: 39%;
+    margin-top: 15px;
+    font-size: 13px;
+    padding: 0 0 12px 10px;
   }
 
   /* text */
@@ -642,8 +651,13 @@ progress::-moz-progress-bar {
 
     h2 {
       font-size: 16px;
-      padding-bottom: 0px;
+      padding-bottom: 5px;
     }
+  }
+
+  .header__address,
+  .header__social {
+    font-size: 12px;
   }
 
   /* text */
@@ -655,7 +669,7 @@ progress::-moz-progress-bar {
 @media (max-width: 518px) {
   /* body */
   body {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   /* section */
@@ -708,8 +722,6 @@ progress::-moz-progress-bar {
   .header__social {
     margin-top: 12px;
     width: 50%;
-  }
-  .header__social {
   }
 }
 
